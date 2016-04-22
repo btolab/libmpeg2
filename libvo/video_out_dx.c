@@ -92,7 +92,7 @@ static long FAR PASCAL event_procedure (HWND hwnd, UINT message,
     switch (message) {
 
     case WM_WINDOWPOSCHANGED:
-	instance = (dx_instance_t *) GetWindowLong (hwnd, GWL_USERDATA);
+	instance = (dx_instance_t *) GetWindowLongPtr (hwnd, GWLP_USERDATA);
 
 	/* update the window position and size */
 	point_window.x = 0;
@@ -171,9 +171,8 @@ static int create_window (dx_instance_t * instance)
     }
 
     /* store a directx_instance pointer into the window local storage
-     * (for later use in event_handler).
-     * We need to use SetWindowLongPtr when it is available in mingw */
-    SetWindowLong (instance->window, GWL_USERDATA, (LONG) instance);
+     * (for later use in event_handler). */
+    SetWindowLongPtr (instance->window, GWLP_USERDATA, (LONG_PTR) instance);
 
     ShowWindow (instance->window, SW_SHOW);
 
