@@ -204,11 +204,11 @@ esac
 dnl check for SDL
 AC_ARG_ENABLE([sdl],[  --disable-sdl           make a version not using SDL])
 if test x"$enable_sdl" != x"no"; then
-    AC_CHECK_PROG([SDLCONFIG],[sdl-config],[yes])
+    AC_CHECK_PROG([SDLCONFIG],[sdl2-config],[yes])
     if test x"$SDLCONFIG" = x"yes"; then
         AC_DEFINE([LIBVO_SDL],,[libvo SDL support])
-        LIBVO_CFLAGS="$LIBVO_CFLAGS `sdl-config --cflags`"
-        LIBVO_LIBS="$LIBVO_LIBS `sdl-config --libs`"
+        LIBVO_CFLAGS="$LIBVO_CFLAGS `sdl2-config --cflags`"
+        LIBVO_LIBS="$LIBVO_LIBS `sdl2-config --libs`"
     fi
 fi
 
