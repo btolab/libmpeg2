@@ -18,6 +18,7 @@ dnl Checks for compiler
 AC_PROG_CC
 AC_PROG_GCC_TRADITIONAL
 AM_PROG_AS
+AM_PROG_AR
 
 dnl Checks for headers. We do this before the CC-specific section because
 dnl autoconf generates tests for generic headers before the first header test.
@@ -64,11 +65,12 @@ elif test x"$GCC" = x"yes"; then
     i?86-* | k?-* | x86_64-* | amd64-*)
 	AC_DEFINE([ARCH_X86],,[x86 architecture])
 	case "$host" in
-	i386-*) TRY_CFLAGS="$OPT_CFLAGS -mcpu=i386";;
-	i486-*) TRY_CFLAGS="$OPT_CFLAGS -mcpu=i486";;
-	i586-*) TRY_CFLAGS="$OPT_CFLAGS -mcpu=pentium";;
-	i686-*) TRY_CFLAGS="$OPT_CFLAGS -mcpu=pentiumpro";;
-	k6-*)   TRY_CFLAGS="$OPT_CFLAGS -mcpu=k6";;
+	i386-*) TRY_CFLAGS="$OPT_CFLAGS -mtune=i386";;
+	i486-*) TRY_CFLAGS="$OPT_CFLAGS -mtune=i486";;
+	i586-*) TRY_CFLAGS="$OPT_CFLAGS -mtune=pentium";;
+	i686-*) TRY_CFLAGS="$OPT_CFLAGS -mtune=generic";;
+	x86_64-*) TRY_CFLAGS="$OPT_CFLAGS -mtune=core2";;
+	k6-*)   TRY_CFLAGS="$OPT_CFLAGS -mtune=k6";;
 	esac
 	AC_TRY_CFLAGS([$TRY_CFLAGS $CFLAGS],[OPT_CFLAGS="$TRY_CFLAGS"]);;
     ppc-* | powerpc-*)

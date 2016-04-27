@@ -79,10 +79,10 @@ AC_DEFUN([AC_C_ATTRIBUTE_ALIGNED],
                 } S = {0, 0};
                 switch (1) {
                     case 0:
-                    case (long)(&((struct s *)0)->b) == $ac_cv_c_attr_align_try:
+                    case (long long)(&((struct s *)0)->b) == $ac_cv_c_attr_align_try:
                         return 0;
                 }
-                return (long)&S;],
+                return (long long)&S;],
                 [ac_cv_c_attribute_aligned=$ac_cv_c_attr_align_try])
         done])
     if test x"$ac_cv_c_attribute_aligned" != x"0"; then

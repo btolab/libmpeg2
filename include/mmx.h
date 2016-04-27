@@ -266,14 +266,14 @@ typedef	union {
 /* SSE2 */
 
 typedef	union {
-	long long		q[2];	/* Quadword (64-bit) value */
-	unsigned long long	uq[2];	/* Unsigned Quadword */
+	int64_t			q[2];	/* Quadword (64-bit) value */
+	uint64_t		uq[2];	/* Unsigned Quadword */
 	int			d[4];	/* 2 Doubleword (32-bit) values */
-	unsigned int		ud[4];	/* 2 Unsigned Doubleword */
-	short			w[8];	/* 4 Word (16-bit) values */
-	unsigned short		uw[8];	/* 4 Unsigned Word */
-	char			b[16];	/* 8 Byte (8-bit) values */
-	unsigned char		ub[16];	/* 8 Unsigned Byte */
+	uint32_t		ud[4];	/* 2 Unsigned Doubleword */
+	int16_t			w[8];	/* 4 Word (16-bit) values */
+	uint16_t		uw[8];	/* 4 Unsigned Word */
+	int8_t			b[16];	/* 8 Byte (8-bit) values */
+	uint8_t			ub[16];	/* 8 Unsigned Byte */
 	float			s[4];	/* Single-precision (32-bit) value */
 } ATTR_ALIGN(16) sse_t;	/* On an 16-byte (128-bit) boundary */
 
