@@ -24,6 +24,11 @@
 #ifndef LIBMPEG2_MPEG2_H
 #define LIBMPEG2_MPEG2_H
 
+/* Set up for C function definitions, even when using C++ */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define MPEG2_VERSION(a,b,c) (((a)<<16)|((b)<<8)|(c))
 #define MPEG2_RELEASE MPEG2_VERSION (0, 5, 1)	/* 0.5.1 */
 
@@ -196,5 +201,10 @@ void * mpeg2_malloc (unsigned size, mpeg2_alloc_t reason);
 void mpeg2_free (void * buf);
 void mpeg2_malloc_hooks (void * malloc (unsigned, mpeg2_alloc_t),
 			 int free (void *));
+
+/* Ends C function definitions when using C++ */
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* LIBMPEG2_MPEG2_H */

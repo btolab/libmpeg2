@@ -26,6 +26,11 @@
 
 #include "mpeg2.h"
 
+/* Set up for C function definitions, even when using C++ */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 mpeg2_convert_t mpeg2convert_rgb32;
 mpeg2_convert_t mpeg2convert_rgb24;
 mpeg2_convert_t mpeg2convert_rgb16;
@@ -46,5 +51,10 @@ mpeg2_convert_t * mpeg2convert_rgb (mpeg2convert_rgb_order_t order,
 				    unsigned int bpp);
 
 mpeg2_convert_t mpeg2convert_uyvy;
+
+/* Ends C function definitions when using C++ */
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* LIBMPEG2_MPEG2CONVERT_H */
